@@ -22,7 +22,7 @@ object FragmentUtils {
     val overlayContainerId: Int
         get() = R.id.overlayContainer
 
-    fun showFragment(clazz: KClass<*>, fragmentManager: FragmentManager, containerId: Int, bundle: Bundle? = null): Fragment? {
+    fun showFragment(clazz: KClass<*>, fragmentManager: FragmentManager, containerId: Int = fragmentContainerId, bundle: Bundle? = null): Fragment? {
         try {
             return showFragment(construct(clazz) as Fragment, fragmentManager, containerId, bundle)
         } catch (e: Exception) {
@@ -31,7 +31,7 @@ object FragmentUtils {
         return null
     }
 
-    fun showFragment(fragment: Fragment, fragmentManager: FragmentManager, containerId: Int, bundle: Bundle? = null): Fragment {
+    fun showFragment(fragment: Fragment, fragmentManager: FragmentManager, containerId: Int = fragmentContainerId, bundle: Bundle? = null): Fragment {
         Log.d(TAG, "adding new fragment to container")
         fragment.arguments = bundle
         val transaction = fragmentManager.beginTransaction()
@@ -45,29 +45,26 @@ object FragmentUtils {
         fragmentManager.beginTransaction().remove(fragment).commit()
     }
 
-    fun getFragmentInMainContainer(activity: AppCompatActivity): Fragment {
+    fun getFragmentInMainContainer(activity: AppCompatActivity): Fragment? {
         return getFragmentInContainer(activity, fragmentContainerId)
     }
 
-    fun getFragmentInOverlayContainer(activity: AppCompatActivity): Fragment {
+    fun getFragmentInOverlayContainer(activity: AppCompatActivity): Fragment? {
         return getFragmentInContainer(activity, overlayContainerId)
     }
 
-    fun getFragmentInContainer(activity: AppCompatActivity, fragmentContainer: Int): Fragment {
+    fun getFragmentInContainer(activity: AppCompatActivity, fragmentContainer: Int): Fragment? {
         return getFragmentInContainer(activity.supportFragmentManager, fragmentContainer)
     }
 
-    fun getFragmentInContainer(supportFragmentManager: FragmentManager, fragmentContainer: Int): Fragment {
+    fun getFragmentInContainer(supportFragmentManager: FragmentManager, fragmentContainer: Int): Fragment? {
         return supportFragmentManager.findFragmentById(fragmentContainer)
     }
 
     fun showFragmentIfContainerIsEmpty(fragmentClazz: KClass<*>, supportFragmentManager: FragmentManager,
                                        fragmentContainer: Int, bundle: Bundle? = null): Fragment? {
-        var fragment: Fragment? = getFragmentInContainer(supportFragmentManager, fragmentContainer)
-        if (fragment == null) {
-            fragment = showFragment(fragmentClazz, supportFragmentManager, fragmentContainer, bundle)
-        }
-        return fragment
+        return getFragmentInContainer(supportFragmentManager, fragmentContainer) ?:
+                showFragment(fragmentClazz, supportFragmentManager, fragmentContainer, bundle)
     }
 
     fun showOverlayFragment(clazz: KClass<*>, fragmentManager: FragmentManager, bundle: Bundle): Fragment? {

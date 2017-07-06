@@ -14,7 +14,7 @@ import com.example.lagoru.sombrerro.view.MainFragment
 class BaseApplication : Application() {
     lateinit var graph: ApplicationComponent
     lateinit var fragmentGraph: FragmentComponent
-    
+
     override fun onCreate() {
         super.onCreate()
         baseApplication = this
