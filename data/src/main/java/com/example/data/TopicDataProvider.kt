@@ -8,6 +8,6 @@ import com.example.data.response.TopicResponse
  */
 class TopicDataProvider(mocker: Mocker<TopicQuery, TopicResponse>?) : DataGetter<TopicQuery, TopicResponse>(mocker) {
     override fun askServer(query: TopicQuery): TopicResponse {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return TopicResponse() //TODO implement this
     }
 }
