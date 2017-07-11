@@ -8,11 +8,11 @@
     tools:context="com.example.lagoru.sombrerro.MainActivity">
 
     <com.szugyi.circlemenu.view.CircleLayout
-        android:id="@+id/circle"
+        android:id="@+id/circleLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/colorAccent"
-        app:firstChildPosition="East"
+        app:firstChildPosition="North"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
