@@ -2,10 +2,6 @@ package com.example.lagoru.sombrerro.mvi
 
 import android.support.v4.app.Fragment
 
-
-/**
- * Created by lagoru on 18.06.17.
- */
 class FragmentMviDelegate<in V, VS : ViewState, P : MviPresenter<V, VS>> constructor(private var delegateCallback: MviDelegateCallback<V, P>?,
                                                                                      private var fragment: Fragment?,
                                                                                      private var viewStateCache: ViewStateCache?,

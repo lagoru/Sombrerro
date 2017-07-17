@@ -34,7 +34,26 @@ class MainFragment : MviFragment<MainFragment, MainFragmentViewState, MainFragme
         return inflater!!.inflate(R.layout.fragment_main, container, false)
     }
 
-    fun renderTopic(topics: List<Topic>) {
+    override fun renderState(viewState: MainFragmentViewState) {
+        when {
+            viewState.isLoadingTopics -> showLoadingTopics()
+            else -> showTopics(viewState.topicList!!)
+        }
+        when {
+            viewState.isLoadingTopics -> showLoadingTopics()
+            else -> showTopics(viewState.topicList!!)
+        }
+    }
+
+    private fun showFirstDataLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun showLoadingTopics() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    fun showTopics(topics: List<Topic>) {
         circleLayout.removeAllViews()
         for (topic in topics) {
             val textView = TextView(context)

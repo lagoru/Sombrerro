@@ -9,10 +9,6 @@ import com.example.lagoru.sombrerro.R
 import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 
-
-/**
- * Created by lagoru on 27.06.17.
- */
 object FragmentUtils {
     private val TAG = "FragmentUtils"
 

@@ -35,6 +35,8 @@ abstract class MviFragment<V, VS : ViewState, P : MviPresenter<V, VS>> : Fragmen
             }
         }
 
+    abstract fun renderState(viewState: VS)
+
     @CallSuper override fun onAttach(activity: android.app.Activity?) {
         super.onAttach(activity)
         mvpDelegate!!.onAttach(activity)
