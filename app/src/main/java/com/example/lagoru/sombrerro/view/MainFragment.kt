@@ -8,7 +8,6 @@ import android.widget.TextView
 import com.example.data.model.Topic
 import com.example.lagoru.sombrerro.R
 import com.example.lagoru.sombrerro.mvi.MviFragment
-import com.example.lagoru.sombrerro.mvi.ViewState
 import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
@@ -26,7 +25,7 @@ class MainFragment : MviFragment<MainFragment, MainFragmentViewState, MainFragme
         get() = TAG
 
 
-    override fun createPresenter(viewState: ViewState?): MainFragmentPresenter {
+    override fun createPresenter(viewState: MainFragmentViewState?): MainFragmentPresenter {
         return presenter
     }
 

@@ -2,11 +2,11 @@ package com.example.lagoru.sombrerro.mvi
 
 import android.support.v4.app.Fragment
 
-class FragmentMviDelegate<in V, VS : ViewState, P : MviPresenter<V, VS>> constructor(private var delegateCallback: MviDelegateCallback<V, P>?,
-                                                                                     private var fragment: Fragment?,
-                                                                                     private var viewStateCache: ViewStateCache?,
-                                                                                     private val keepPresenterDuringScreenOrientationChange: Boolean = true,
-                                                                                     private val keepPresenterOnBackstack: Boolean = true) {
+class FragmentMviDelegate<in V, VS : ViewState<*>, P : MviPresenter<V, VS>> constructor(private var delegateCallback: MviDelegateCallback<V, VS, P>?,
+                                                                                        private var fragment: Fragment?,
+                                                                                        private var viewStateCache: ViewStateCache?,
+                                                                                        private val keepPresenterDuringScreenOrientationChange: Boolean = true,
+                                                                                        private val keepPresenterOnBackstack: Boolean = true) {
     private var onViewCreatedCalled = false
     private var presenter: P? = null
 

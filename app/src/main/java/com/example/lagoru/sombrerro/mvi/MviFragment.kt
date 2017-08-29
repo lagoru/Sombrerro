@@ -8,7 +8,7 @@ import javax.inject.Inject
 /**
  * Created by lagoru on 18.06.17.
  */
-abstract class MviFragment<V, VS : ViewState, P : MviPresenter<V, VS>> : Fragment(), MviDelegateCallback<V, P> {
+abstract class MviFragment<V, VS : ViewState<*>, P : MviPresenter<V, VS>> : Fragment(), MviDelegateCallback<V, VS, P> {
 
     @Inject
     lateinit var viewStateCache: ViewStateCache
