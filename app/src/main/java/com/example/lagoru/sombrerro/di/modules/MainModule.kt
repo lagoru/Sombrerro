@@ -1,7 +1,8 @@
-package com.example.lagoru.sombrerro.di
+package com.example.lagoru.sombrerro.di.modules
 
 import android.content.Context
 import com.example.lagoru.sombrerro.baseApplication
+import com.example.lagoru.sombrerro.di.ForApplication
 import com.example.lagoru.sombrerro.mvi.ViewStateCache
 import dagger.Module
 import dagger.Provides

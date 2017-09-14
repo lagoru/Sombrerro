@@ -1,5 +1,8 @@
-package com.example.lagoru.sombrerro.di
+package com.example.lagoru.sombrerro.di.components
 
+import com.example.lagoru.sombrerro.di.modules.FragmentModule
+import com.example.lagoru.sombrerro.di.PerFragment
+import com.example.lagoru.sombrerro.di.modules.ProviderModule
 import com.example.lagoru.sombrerro.view.MainFragment
 import dagger.Component
 

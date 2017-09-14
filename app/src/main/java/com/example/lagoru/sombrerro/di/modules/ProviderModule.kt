@@ -1,4 +1,4 @@
-package com.example.lagoru.sombrerro.di
+package com.example.lagoru.sombrerro.di.modules
 
 import com.example.data.TopicDataProvider
 import com.example.lagoru.sombrerro.mocker.TopicMocker

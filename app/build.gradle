@@ -38,6 +38,8 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.8'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
+    compile "io.reactivex.rxjava2:rxkotlin:2.1.0"
+
     compile 'com.android.support:appcompat-v7:25.4.0'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.4.0'
