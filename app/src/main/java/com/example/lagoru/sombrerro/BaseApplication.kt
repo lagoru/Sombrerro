@@ -2,8 +2,8 @@ package com.example.lagoru.sombrerro
 
 import android.app.Application
 import com.example.lagoru.sombrerro.di.components.ApplicationComponent
-import com.example.lagoru.sombrerro.di.DaggerApplicationComponent
-import com.example.lagoru.sombrerro.di.DaggerFragmentComponent
+import com.example.lagoru.sombrerro.di.components.DaggerApplicationComponent
+import com.example.lagoru.sombrerro.di.components.DaggerFragmentComponent
 import com.example.lagoru.sombrerro.di.components.FragmentComponent
 import com.example.lagoru.sombrerro.mvi.MviFragment
 import com.example.lagoru.sombrerro.view.MainFragment
