@@ -7,7 +7,7 @@ package com.example.lagoru.sombrerro.mvi
 class ViewStateCache {
     private var cache: HashMap<String, Any> = HashMap()
 
-    public fun <T> getViewState(key: String?): T {
+    public fun <T> getViewState(key: String): T {
         return cache.get(key) as T
     }
 

@@ -12,11 +12,9 @@ import kotlin.reflect.full.primaryConstructor
 object FragmentUtils {
     private val TAG = "FragmentUtils"
 
-    val fragmentContainerId: Int
-        get() = R.id.fragmentContainer
+    val fragmentContainerId: Int = R.id.fragmentContainer
 
-    val overlayContainerId: Int
-        get() = R.id.overlayContainer
+    val overlayContainerId: Int = R.id.overlayContainer
 
     fun showFragment(clazz: KClass<*>, fragmentManager: FragmentManager, containerId: Int = fragmentContainerId, bundle: Bundle? = null): Fragment? {
         try {

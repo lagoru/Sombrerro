@@ -13,6 +13,8 @@ abstract class MviFragment<V, VS : ViewState<*>, P : MviPresenter<V, VS>> : Frag
     @Inject
     lateinit var viewStateCache: ViewStateCache
 
+    open lateinit var presenter: P
+
     override var isRestoringViewState = false
 
     private var _mvpDelegeate: FragmentMviDelegate<V, VS, P>? = null
@@ -34,6 +36,13 @@ abstract class MviFragment<V, VS : ViewState<*>, P : MviPresenter<V, VS>> : Frag
                 throw RuntimeException(msg, e)
             }
         }
+
+    override fun createPresenter(viewState: VS?): P {
+        if (viewState != null) {
+            presenter.viewState = viewState
+        }
+        return presenter
+    }
 
     abstract fun renderState(viewState: VS)
 

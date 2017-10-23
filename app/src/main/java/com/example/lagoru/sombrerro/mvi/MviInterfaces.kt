@@ -20,8 +20,20 @@ interface MvpPresenter<in V> {
     fun detachView(retainInstance: Boolean)
 }
 
-interface MviPresenter<in V, VS : ViewState<*>> : com.example.lagoru.sombrerro.mvi.MvpPresenter<V> {
+abstract class MviPresenter<in V, VS : ViewState<*>> : com.example.lagoru.sombrerro.mvi.MvpPresenter<V> {
+    var _viewState: VS? = null
     var viewState: VS
+        get() {
+            if (_viewState == null) {
+                _viewState = initializeState()
+            }
+            return _viewState!!
+        }
+        set(viewState) {
+            _viewState = viewState
+        }
+
+    abstract fun initializeState(): VS
 }
 
 interface MviDelegateCallback<V, in VS : ViewState<*>, out P : MviPresenter<V, *>> {

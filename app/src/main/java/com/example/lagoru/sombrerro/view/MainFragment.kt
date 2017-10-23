@@ -19,15 +19,11 @@ class MainFragment : MviFragment<MainFragment, MainFragmentViewState, MainFragme
     val TAG: String = MainFragment::class.simpleName!!
 
     @Inject
-    lateinit var presenter: MainFragmentPresenter
+    override lateinit var presenter: MainFragmentPresenter
 
     override val viewStateIdentifierId: String
         get() = TAG
 
-
-    override fun createPresenter(viewState: MainFragmentViewState?): MainFragmentPresenter {
-        return presenter
-    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_main, container, false)
